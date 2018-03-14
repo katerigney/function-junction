@@ -3,13 +3,28 @@
  * and returns the largest of them. Use the if-then-else
  * construct available in Javascript.
  */
+let x = 1;
+let y = 2;
 
+const max = (x, y) => {
+  if (x > y) {
+    return x;
+  }
+  else {
+    return y;
+  }
+}
 // ...
 
 /**
  * Define a function maxOfThree() that takes three
  * numbers as arguments and returns the largest of them.
  */
+
+const maxOfThree = (x, y, z) => {
+  let a = max(x, y)
+  return max(a, z)
+}
 
 // ...
 
@@ -18,12 +33,27 @@
  * arguments and computes the sum of those two numbers.
  */
 
+let dogs = 1;
+let cats = 2;
+
+const sum = (dogs, cats) => {
+  return dogs + cats;
+}
 // ...
 
 /*
  * Define a function sumOfArray that calculates the sum of
  * all the numbers in an array.
  */
+
+
+const sumOfArray = (array) => {
+  let sum = 0;
+  for (var i = 0; i < array.length; i++) {
+    sum += array[i]
+  }
+  return sum;
+}
 
 // ...
 
@@ -32,16 +62,32 @@
  * and returns true if it is a vowel, false otherwise.
  */
 
+const isVowel = (x) => {
+  if (x === "a" || x === "e" || x === "i" || x === "o" || x === "u" || x === "A" || x === "E" || x === "I" || x === "O" || x === "U") {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 // ...
 
- /**
-  * Write a function rovarspraket() that will translate
-  * a text into a "rövarspråket". That is, double every
-  * consonant and place an occurrence of "o" in between.
-  *
-  * For example, rovarspraket("this is fun") should
-  * return the string "tothohisos isos fofunon".
-  */
+/**
+ * Write a function rovarspraket() that will translate
+ * a text into a "rövarspråket". That is, double every
+ * consonant and place an occurrence of "o" in between.
+ *
+ * For example, rovarspraket("this is fun") should
+ * return the string "tothohisos isos fofunon".
+ */
+
+
+ //
+ const rovarspraket = (phraseToTranslate) => {
+  const vowels = ["a", "e", "i", "o", "u"];
+  let y = "";
+  
+ }
 
 // ...
 
@@ -52,15 +98,34 @@
  * string "books".
  */
 
+// let reversedWord = [];
+
+let word = "";
+
+const reverse = (word) => {
+  return word.split('').reverse().join("");
+}
 // ...
 
- /**
-  * Write a function findLongestWord() that takes an
-  * string returns the first, longest word in the array.
-  *
-  * i.e. findLongestWord("book dogs") should return "book"
-  */
+/**
+ * Write a function findLongestWord() that takes an
+ * string returns the first, longest word in the array.
+ *
+ * i.e. findLongestWord("book dogs") should return "book"
+ */
 
+let phrase = [];
+
+const findLongestWord = (phrase) => {
+  let split = phrase.split(" ");
+  let longestWord = 0;
+  for (let index = 0; index < split.length; index++) {
+    if (split[index].length > longestWord) {
+      longestWord = split[index].length
+    }
+  }
+  return longestWord;
+}
 // ...
 
 /**
