@@ -83,12 +83,42 @@ const isVowel = (x) => {
 
 
  //
- const rovarspraket = (phraseToTranslate) => {
-  const vowels = ["a", "e", "i", "o", "u"];
-  let y = "";
-  
- }
 
+ const rovarspraket = (phrase) => {
+
+  if(typeof phrase == 'number'){
+    let convertedPhrase = phrase.toString()
+    return convertedPhrase;
+  }
+  else{
+  // list of consonants
+  const consonants = "bcdfghjklmnpqrstvwxz";
+  //taking the passed string and splitting it
+ 
+  let newString = phrase.split('');
+
+  // ('t', 'h','i, ...')
+  // loop through the string to identify consonants
+  let b = [];
+
+  for (var i = 0; i < phrase.length; i++) {
+    //if true take each element and apply new string
+    if (consonants.includes(newString[i])) {
+      let newText = newString[i] + "o" + newString[i];
+      // console.log(newString[i])
+      b.push(newText);
+    }
+    else {
+      // console.log(newString[i]);
+      b.push(newString[i]);
+      
+    }
+  }
+
+  let answer =  b.join("");
+  return answer;
+  }
+}
 // ...
 
 /**
@@ -97,10 +127,6 @@ const isVowel = (x) => {
  * reverse("skoob") should return the
  * string "books".
  */
-
-// let reversedWord = [];
-
-let word = "";
 
 const reverse = (word) => {
   return word.split('').reverse().join("");
@@ -114,17 +140,19 @@ const reverse = (word) => {
  * i.e. findLongestWord("book dogs") should return "book"
  */
 
-let phrase = [];
 
-const findLongestWord = (phrase) => {
-  let split = phrase.split(" ");
+const findLongestWord = (longestPhrase) => {
+  let wordArray = longestPhrase.split(" ");
   let longestWord = 0;
-  for (let index = 0; index < split.length; index++) {
-    if (split[index].length > longestWord) {
-      longestWord = split[index].length
+  let findingLongestWord = "";
+
+  for (let index = 0; index < wordArray.length; index++) {
+    if (wordArray[index].length > longestWord) {
+      longestWord = wordArray[index].length;
+      findingLongestWord = wordArray[index];
     }
   }
-  return longestWord;
+  return findingLongestWord;
 }
 // ...
 
@@ -189,7 +217,8 @@ test('reverse()', (t) => {
 
 test('findLongestWord()', (t) => {
   t.is(findLongestWord('book dogs'), 'book')
-  t.is(findLongestWord('everything'), 'life the universe and everything')
+  t.is(findLongestWord('life the universe and everything'), 'everything')
+  // t.is(findLongestWord('everything'), 'life the universe and everything')
 })
 
 /* eslint-enable */
